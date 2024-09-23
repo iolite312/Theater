@@ -4,7 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import me.leon.theater.models.Database;
+import me.leon.theater.controllers.LoginController;
+import me.leon.theater.data.Database;
 
 import java.io.IOException;
 
@@ -15,7 +16,6 @@ public class TheaterApp extends Application {
         Database database = new Database();
         FXMLLoader fxmlLoader = new FXMLLoader(TheaterApp.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }
