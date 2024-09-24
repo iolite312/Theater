@@ -10,6 +10,7 @@ public class Database {
     private List<User> users = new ArrayList<>();
     private List<Shows> shows = new ArrayList<>();
     private List<Ticket> tickets = new ArrayList<>();
+    private User loggedInUser;
 
     public Database() {
         //TODO implement file checks
@@ -35,5 +36,14 @@ public class Database {
     }
     public List<Ticket> getTickets() {
         return tickets;
+    }
+    public User getLoggedInUser() {
+        return loggedInUser;
+    }
+    public void setLoggedInUser(User loggedInUser) {
+        this.loggedInUser = loggedInUser;
+    }
+    public void logOut() {
+        loggedInUser = null;
     }
 }
