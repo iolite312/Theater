@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import me.leon.theater.data.Database;
 import me.leon.theater.models.User;
 
+import java.io.IOException;
 import java.util.List;
 
 public class LoginController {
