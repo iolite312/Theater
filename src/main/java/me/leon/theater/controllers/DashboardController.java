@@ -19,10 +19,19 @@ public class DashboardController {
         this.sceneController = sceneController;
     }
 
-    public void loadSubScene(ActionEvent event) {
-        sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);
+    public void loadSales(ActionEvent event) {
+        sceneController.loadSubScenes("sales-view.fxml", new SalesController(database, sceneController), layout);
     }
-    public void loadSubScene2(ActionEvent event) {
-        sceneController.loadSubScenes("sales-view.fxml", new HomeController(database, sceneController), layout);
+
+    public void loadShows(ActionEvent event) {
+        sceneController.loadSubScenes("shows-view.fxml", new ShowsController(database, sceneController), layout);
+    }
+
+    public void loadSalesHistory(ActionEvent event) {
+        sceneController.loadSubScenes("salesHistory-view.fxml", new SalesHistoryController(database, sceneController), layout);
+    }
+    @FXML
+    public void initialize() {
+        sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);
     }
 }
