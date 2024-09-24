@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import me.leon.theater.TheaterApp;
 import me.leon.theater.data.Database;
@@ -55,5 +56,18 @@ public class SceneController {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+    }
+
+    public void loadSubScenes(String name, Object controller, VBox layout) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(TheaterApp.class.getResource(name));
+            fxmlLoader.setController(controller);
+            Scene scene = new Scene(fxmlLoader.load());
+            if (layout.getChildren().size() > 1)
+                layout.getChildren().remove(1);
+            layout.getChildren().add(scene.getRoot());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
