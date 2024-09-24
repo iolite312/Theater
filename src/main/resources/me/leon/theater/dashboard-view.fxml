@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,13 +15,19 @@
          <children>
             <Pane prefHeight="84.0" prefWidth="600.0" style="-fx-background-color: #000000;">
                <children>
-                  <Text layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fantastic Cinema">
+                  <Text fill="WHITE" layoutX="86.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fantastic Cinema">
                      <font>
                         <Font size="34.0" />
                      </font>
                   </Text>
-                  <Button layoutX="324.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadSubScene" text="Alive" />
-                  <Button layoutX="405.0" layoutY="30.0" mnemonicParsing="false" onAction="#loadSubScene2" text="Dead" />
+                  <Button layoutX="843.0" layoutY="43.0" mnemonicParsing="false" onAction="#loadShows" prefHeight="40.0" prefWidth="150.0" text="Manage Showings" />
+                  <Button layoutX="1001.0" layoutY="43.0" mnemonicParsing="false" onAction="#loadSalesHistory" prefHeight="40.0" prefWidth="160.0" text="View Sales History" />
+                  <Button layoutX="714.0" layoutY="43.0" mnemonicParsing="false" onAction="#loadSales" prefHeight="40.0" prefWidth="120.0" text="Sell Tickets" />
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@MovieLogo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
