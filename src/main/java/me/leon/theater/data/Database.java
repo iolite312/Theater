@@ -16,8 +16,8 @@ public class Database {
         seedDatabase();
     }
     private void seedDatabase() {
-        users.add(new User(1, "manager", "test1234", Role.MANAGER));
-        users.add(new User(2, "sales", "test1234", Role.SALES));
+        users.add(new User(1, "manager", "1234", Role.MANAGER));
+        users.add(new User(2, "sales", "1234", Role.SALES));
         shows.add(new Shows(1, "Rebel Moon - Part Two: The ScarGiver", LocalDateTime.of(2024, 10, 4, 14, 0), LocalDateTime.of(2024, 10, 4, 16, 30), 72, 66));
         shows.add(new Shows(2, "Rebel Moon - Part Two: The ScarGiver", LocalDateTime.of(2024, 10, 5, 20, 0), LocalDateTime.of(2024, 10, 4, 22, 30), 72, 44));
         List<Seat> seats = new ArrayList<>();
