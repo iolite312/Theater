@@ -26,8 +26,11 @@ public class LoginController {
     @FXML
     private Text passwordErrorTxt;
 
-    public LoginController() {
-        this.database = new Database();
+    private SceneController sceneController;
+
+    public LoginController(Database database, SceneController sceneController) {
+        this.database = database;
+        this.sceneController = sceneController;
     }
 
     public void onLoginButtonClick(ActionEvent event) throws IOException {
@@ -40,7 +43,7 @@ public class LoginController {
             if (user.getUserName().equals(username)) {
                 found = true;
                 if (user.getPassword().equals(password)) {
-                    userNameErrorTxt.setText("Successfully logged in!");
+                    sceneController.setRootScene("home", event);
                     break;
                 }
                 passwordErrorTxt.setText("Wrong password!");
