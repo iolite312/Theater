@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import me.leon.theater.data.Database;
 
-import java.io.IOException;
-
 public class DashboardController {
 
     private Database database;
