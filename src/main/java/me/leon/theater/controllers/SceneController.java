@@ -27,7 +27,7 @@ public class SceneController {
 
     public void addScenePaths() {
         scenes.put("login", "login-view.fxml");
-        scenes.put("home", "home-view.fxml");
+        scenes.put("dashboard", "dashboard-view.fxml");
     }
 
     public void setRootScene(String name) throws IOException {
@@ -44,8 +44,8 @@ public class SceneController {
         FXMLLoader loader = new FXMLLoader(TheaterApp.class.getResource(scenes.get(name)));
         if ("login".equals(name)) {
             loader.setController(new LoginController(database, this));
-        } else if ("home".equals(name)) {
-            loader.setController(new HomeViewController(database, this));
+        } else if ("dashboard".equals(name)) {
+            loader.setController(new DashboardController(database, this));
         }
 
         root = loader.load();

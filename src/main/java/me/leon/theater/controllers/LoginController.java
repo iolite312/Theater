@@ -43,7 +43,8 @@ public class LoginController {
             if (user.getUserName().equals(username)) {
                 found = true;
                 if (user.getPassword().equals(password)) {
-                    sceneController.setRootScene("home", event);
+                    database.setLoggedInUser(user);
+                    sceneController.setRootScene("dashboard", event);
                     break;
                 }
                 passwordErrorTxt.setText("Wrong password!");
