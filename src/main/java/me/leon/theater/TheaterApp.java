@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import me.leon.theater.controllers.SceneController;
 import me.leon.theater.data.Database;
-
 import java.io.IOException;
 
 public class TheaterApp extends Application {
