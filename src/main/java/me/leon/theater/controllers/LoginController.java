@@ -29,7 +29,7 @@ public class LoginController {
         this.database = new Database();
     }
 
-    public void OnLoginButtonClick(ActionEvent actionEvent) {
+    public void onLoginButtonClick(ActionEvent event) throws IOException {
         String username = userNameInput.getText();
         String password = passwordInput.getText();
         List<User> users = database.getUsers();
