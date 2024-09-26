@@ -2,8 +2,10 @@ package me.leon.theater.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import me.leon.theater.data.Database;
+import me.leon.theater.models.Role;
 
 public class DashboardController {
 
@@ -11,6 +13,10 @@ public class DashboardController {
     private SceneController sceneController;
     @FXML
     VBox layout;
+    @FXML
+    Button manageShowingBtn;
+    @FXML
+    Button viewSalesHistoryBtn;
 
     public DashboardController(Database database, SceneController sceneController) {
         this.database = database;
@@ -28,8 +34,13 @@ public class DashboardController {
     public void loadSalesHistory(ActionEvent event) {
         sceneController.loadSubScenes("salesHistory-view.fxml", new SalesHistoryController(database, sceneController), layout);
     }
+    public void goToHome() {
+        sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);
+    }
     @FXML
     public void initialize() {
         sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);
+        manageShowingBtn.setDisable(database.getLoggedInUser().getRole() == Role.SALES);
+        viewSalesHistoryBtn.setDisable(database.getLoggedInUser().getRole() == Role.SALES);
     }
 }
