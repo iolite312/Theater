@@ -1,22 +1,21 @@
 package me.leon.theater.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Shows {
     private int id;
-    private String showTitle;
+    private String title;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private int totalSeats;
-    private int seatsLeft;
+    private Room room;
 
-    public Shows(int id, String showTitle, LocalDateTime startTime, LocalDateTime endTime, int totalSeats, int seatsLeft) {
+    public Shows(int id, String showTitle, LocalDateTime startTime, LocalDateTime endTime, Room room) {
         this.id = id;
-        this.showTitle = showTitle;
+        this.title = showTitle;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.totalSeats = totalSeats;
-        this.seatsLeft = seatsLeft;
+        this.room = room;
     }
 
     public int getId() {
