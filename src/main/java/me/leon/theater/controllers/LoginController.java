@@ -38,6 +38,9 @@ public class LoginController {
         String password = passwordInput.getText();
         List<User> users = database.getUsers();
 
+        userNameErrorTxt.setText("");
+        passwordErrorTxt.setText("");
+
         boolean found = false;
         for (User user : users) {
             if (user.getUserName().equals(username)) {
