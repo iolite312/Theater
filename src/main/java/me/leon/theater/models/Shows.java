@@ -22,23 +22,21 @@ public class Shows {
         return id;
     }
 
-    public String getShowTitle() {
-        return showTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public LocalDateTime getStartTime() {
-        return startTime;
+    public String getStartTime() {
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return startTime.format(formatted);
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
+    public String getEndTime() {
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return endTime.format(formatted);
     }
 
-    public int getTotalSeats() {
-        return totalSeats;
-    }
-
-    public int getSeatsLeft() {
-        return seatsLeft;
+    public Room getRoom() {
+        return room;
     }
 }
