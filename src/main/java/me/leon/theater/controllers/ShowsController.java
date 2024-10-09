@@ -9,6 +9,8 @@ import javafx.scene.text.Text;
 import me.leon.theater.data.Database;
 import me.leon.theater.models.Shows;
 
+import java.util.Comparator;
+
 public class ShowsController {
     private Database database;
 
@@ -17,7 +19,7 @@ public class ShowsController {
     private ObservableList<Shows> shows;
 
     @FXML
-    private TableView showingsTableView;
+    private TableView<Shows> showingsTableView;
     @FXML
     private Text errorMessage;
 
@@ -28,29 +30,53 @@ public class ShowsController {
     @FXML
     public void initialize() {
         shows = FXCollections.observableArrayList(database.getShows());
+
         showingsTableView.setItems(shows);
     }
 
     public void addShowing(ActionEvent actionEvent) {
         ShowsDialogController showsDialogController = new ShowsDialogController(database);
+
         sceneController.StartDialog("Add Showing", "showsDialog-view.fxml", showsDialogController);
 
         if (showsDialogController.getShow() != null) {
             shows.add(showsDialogController.getShow());
+            database.getShows().add(showsDialogController.getShow());
+            sortShows();
+            showingsTableView.refresh();
         }
     }
 
     public void editShowing(ActionEvent actionEvent) {
+        if (showingsTableView.getSelectionModel().getSelectedItems().isEmpty()) {
+            errorMessage.setText("No shows selected");
+            return;
+        }
+        Shows show = (Shows)showingsTableView.getSelectionModel().getSelectedItems().getFirst();
+        ShowsDialogController showsDialogController = new ShowsDialogController(show, database);
 
+        sceneController.StartDialog("Edit Showing", "showsDialog-view.fxml", showsDialogController);
+
+        if (showsDialogController.getShow() != null) {
+            shows.remove(show);
+            shows.add(showsDialogController.getShow());
+            sortShows();
+            showingsTableView.refresh();
+        }
     }
 
     public void deleteShowing(ActionEvent actionEvent) {
         errorMessage.setText("");
         ObservableList<Shows> selectedShow = showingsTableView.getSelectionModel().getSelectedItems();
+
         if (selectedShow.getFirst().getTickets().isEmpty()) {
             shows.removeAll(selectedShow);
             return;
         }
+
         errorMessage.setText("This showing has already sold tickets");
+    }
+    private void sortShows() {
+        shows.sort(Comparator.comparing(Shows::getStartTime)); // Sort using the startTime property
     }
 }
