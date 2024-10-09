@@ -31,31 +31,35 @@ public class SceneController {
         scenes.put("dashboard", "dashboard-view.fxml");
     }
 
-    public void setRootScene(String name) throws IOException {
+    public void setRootScene(String name) {
         SceneLoader(name);
         stage.show();
     }
 
-    public void setRootScene(String name, ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+    public void setRootScene(String name, ActionEvent actionEvent) {
+        stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         SceneLoader(name);
     }
 
-    private void SceneLoader(String name) throws IOException {
-        FXMLLoader loader = new FXMLLoader(TheaterApp.class.getResource(scenes.get(name)));
-        if ("login".equals(name)) {
-            loader.setController(new LoginController(database, this));
-        } else if ("dashboard".equals(name)) {
-            loader.setController(new DashboardController(database, this));
-        }
+    private void SceneLoader(String name) {
+        try {
+            FXMLLoader loader = new FXMLLoader(TheaterApp.class.getResource(scenes.get(name)));
+            if ("login".equals(name)) {
+                loader.setController(new LoginController(database, this));
+            } else if ("dashboard".equals(name)) {
+                loader.setController(new DashboardController(database, this));
+            }
 
-        root = loader.load();
-        if (root == null) {
-            throw new IllegalArgumentException("Scene not found");
-        }
-        Scene scene = new Scene(root);
+            root = loader.load();
+            if (root == null) {
+                throw new IllegalArgumentException("Scene not found");
+            }
+            Scene scene = new Scene(root);
 
-        stage.setScene(scene);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void loadSubScenes(String name, Object controller, VBox layout) {
