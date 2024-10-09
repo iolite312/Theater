@@ -40,7 +40,7 @@
                     </TableColumn>
                     <TableColumn minWidth="300" prefWidth="130.0" text="Showing">
                         <cellValueFactory>
-                            <PropertyValueFactory property="show" />
+                            <PropertyValueFactory property="showingTitle" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

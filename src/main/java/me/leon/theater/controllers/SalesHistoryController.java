@@ -5,7 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import me.leon.theater.data.Database;
+import me.leon.theater.models.Shows;
 import me.leon.theater.models.Ticket;
+
+import java.util.List;
 
 public class SalesHistoryController {
     private Database database;
@@ -24,7 +27,11 @@ public class SalesHistoryController {
 
     @FXML
     public void initialize() {
-        tickets = FXCollections.observableArrayList(database.getTickets());
+        tickets = FXCollections.observableArrayList();
+        List<Shows> shows = database.getShows();
+        for (Shows show : shows) {
+            tickets.addAll(show.getTickets());
+        }
         salesTableView.setItems(tickets);
     }
 }
