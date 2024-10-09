@@ -74,4 +74,20 @@ public class SceneController {
             throw new RuntimeException(e);
         }
     }
+    public void StartDialog(String name, String view, Object controller) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(TheaterApp.class.getResource(view));
+            fxmlLoader.setController(controller);
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage dialog = new Stage();
+            dialog.setTitle(name);
+            dialog.setScene(scene);
+            dialog.showAndWait();
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
