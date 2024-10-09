@@ -1,6 +1,7 @@
 package me.leon.theater.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,12 @@ public class Ticket {
         return show;
     }
 
-    public LocalDateTime getPurchaseDate() {
-        return purchaseDate;
+    public String getPurchaseDate() {
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return purchaseDate.format(formatted);
+    }
+
+    public int getCount() {
+        return seats.size();
     }
 }
