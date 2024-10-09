@@ -33,4 +33,9 @@ public class Shows {
     public Room getRoom() {
         return room;
     }
+
+    @Override
+    public String toString() {
+        return startTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")) + " " + title;
+    }
 }
