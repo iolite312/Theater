@@ -47,7 +47,7 @@
                </TableColumn>
                <TableColumn minWidth="50" prefWidth="130.0" text="Room">
                   <cellValueFactory>
-                     <PropertyValueFactory property="room" />
+                     <PropertyValueFactory property="roomOccupation" />
                   </cellValueFactory>
                </TableColumn>
             </columns>

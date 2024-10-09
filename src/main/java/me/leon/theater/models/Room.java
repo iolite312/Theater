@@ -1,15 +1,15 @@
 package me.leon.theater.models;
 
+import java.util.List;
+
 public class Room
 {
     private String roomName;
     private int totalSeats;
-    private int seatsLeft;
 
-    public Room(String roomName, int totalSeats, int seatsLeft) {
+    public Room(String roomName, int totalSeats) {
         this.roomName = roomName;
         this.totalSeats = totalSeats;
-        this.seatsLeft = seatsLeft;
     }
 
     public String getRoomName() {
@@ -20,12 +20,8 @@ public class Room
         return totalSeats;
     }
 
-    public int getSeatsLeft() {
-        return seatsLeft;
-    }
-
     @Override
     public String toString() {
-        return roomName + ": " + seatsLeft + "/" + totalSeats +" left" ;
+        return roomName + ": " + totalSeats +" seats";
     }
 }
