@@ -27,18 +27,23 @@ public class Shows {
         this.tickets = tickets;
     }
 
+    public void updateShow(String showTitle, LocalDateTime startTime, LocalDateTime endTime, Room room) {
+        this.title = showTitle;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.room = room;
+    }
+
     public String getTitle() {
         return title;
     }
 
-    public String getStartTime() {
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        return startTime.format(formatted);
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
-    public String getEndTime() {
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        return endTime.format(formatted);
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
     public List<Ticket> getTickets() {
@@ -52,6 +57,7 @@ public class Shows {
     public String getRoomOccupation() {
         return room.getRoomName() + ": " + (room.getTotalSeats() - ticketSeatCount()) + "/" + room.getTotalSeats() + " left";
     }
+
     private int ticketSeatCount() {
         int count = 0;
         for (Ticket ticket : tickets) {
