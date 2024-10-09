@@ -28,6 +28,8 @@ public class ShowsDialogController {
     Database database;
 
     @FXML
+    Text header;
+    @FXML
     TextField title;
     @FXML
     ComboBox<Room> roomSelector;
@@ -41,13 +43,33 @@ public class ShowsDialogController {
     TextField endTime;
     @FXML
     Text errorLabel;
+    @FXML
+    Button confirmBtn;
 
     public ShowsDialogController(Database database) {
         this.database = database;
     }
 
+    public ShowsDialogController(Shows show, Database database) {
+        this.show = show;
+        this.database = database;
+    }
+
     public void initialize() {
         roomSelector.getItems().addAll(database.getRooms());
+        if (show != null) {
+            roomSelector.setValue(show.getRoom());
+            title.setText(show.getTitle());
+            startTime.setText(show.getStartTime().toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+            endTime.setText(show.getEndTime().toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+            startDate.setValue(show.getStartTime().toLocalDate());
+            endDate.setValue(show.getEndTime().toLocalDate());
+            header.setText("Edit Showing");
+            confirmBtn.setText("Edit Showing");
+            if (!show.getTickets().isEmpty()) {
+                roomSelector.setDisable(true);
+            }
+        }
     }
 
     public void cancel(ActionEvent event) {
@@ -72,7 +94,11 @@ public class ShowsDialogController {
         if (startDate.getValue().isAfter(endDate.getValue())) {
             errorLabel.setText("Start date is after end date"); return;
         }
-        show = new Shows(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
+        if (show == null) {
+            show = new Shows(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
+        } else {
+            show.updateShow(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
+        }
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
     }
