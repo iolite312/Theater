@@ -32,7 +32,12 @@ public class ShowsController {
     }
 
     public void addShowing(ActionEvent actionEvent) {
-        sceneController.StartDialog("Add Showing", "showsDialog-view.fxml", new ShowsDialogController(database));
+        ShowsDialogController showsDialogController = new ShowsDialogController(database);
+        sceneController.StartDialog("Add Showing", "showsDialog-view.fxml", showsDialogController);
+
+        if (showsDialogController.getShow() != null) {
+            shows.add(showsDialogController.getShow());
+        }
     }
 
     public void editShowing(ActionEvent actionEvent) {
@@ -40,8 +45,9 @@ public class ShowsController {
     }
 
     public void deleteShowing(ActionEvent actionEvent) {
+        errorMessage.setText("");
         ObservableList<Shows> selectedShow = showingsTableView.getSelectionModel().getSelectedItems();
-        if (selectedShow.getFirst().getRoom().getSeatsLeft() == selectedShow.getFirst().getRoom().getTotalSeats()) {
+        if (selectedShow.getFirst().getTickets().isEmpty()) {
             shows.removeAll(selectedShow);
             return;
         }
