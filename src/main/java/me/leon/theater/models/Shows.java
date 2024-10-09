@@ -21,12 +21,12 @@ public class Shows {
     }
 
     public String getStartTime() {
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return startTime.format(formatted);
     }
 
     public String getEndTime() {
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return endTime.format(formatted);
     }
 
