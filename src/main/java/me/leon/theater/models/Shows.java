@@ -4,22 +4,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Shows {
-    private int id;
     private String title;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Room room;
 
-    public Shows(int id, String showTitle, LocalDateTime startTime, LocalDateTime endTime, Room room) {
-        this.id = id;
+    public Shows(String showTitle, LocalDateTime startTime, LocalDateTime endTime, Room room) {
         this.title = showTitle;
         this.startTime = startTime;
         this.endTime = endTime;
         this.room = room;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitle() {
