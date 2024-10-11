@@ -1,11 +1,12 @@
 package me.leon.theater.models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shows {
+public class Shows implements Serializable {
     private String title;
     private LocalDateTime startTime;
     private LocalDateTime endTime;

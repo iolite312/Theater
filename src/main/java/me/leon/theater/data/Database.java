@@ -2,11 +2,12 @@ package me.leon.theater.data;
 
 import me.leon.theater.models.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Database {
+public class Database implements Serializable {
     private List<User> users = new ArrayList<>();
     private List<Shows> shows = new ArrayList<>();
     private List<Room> rooms = new ArrayList<>();

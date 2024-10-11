@@ -1,11 +1,12 @@
 package me.leon.theater.models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ticket {
+public class Ticket implements Serializable {
     private List<Seat> seats = new ArrayList<>();
     private String customerName;
     private LocalDateTime purchaseDate;
