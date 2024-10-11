@@ -24,7 +24,7 @@ public class DashboardController {
     }
 
     public void loadSales(ActionEvent event) {
-        sceneController.loadSubScenes("sales-view.fxml", new SalesController(database, sceneController), layout);
+        sceneController.loadSubScenes("sales-view.fxml", new SalesController(database, sceneController, layout), layout);
     }
 
     public void loadShows(ActionEvent event) {
