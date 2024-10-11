@@ -76,7 +76,8 @@ public class ShowsController {
 
         errorMessage.setText("This showing has already sold tickets");
     }
+
     private void sortShows() {
-        shows.sort(Comparator.comparing(Shows::getStartTime)); // Sort using the startTime property
+        shows.sort(Comparator.comparing(Shows::getStartTime));
     }
 }
