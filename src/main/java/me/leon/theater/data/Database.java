@@ -32,7 +32,7 @@ public class Database implements Serializable {
         shows.add(new Shows("Rebel Moon - Part Two: The ScarGiver", LocalDateTime.of(2024, 10, 5, 20, 0), LocalDateTime.of(2024, 10, 4, 22, 30), rooms.getFirst(), tickets2));
     }
     private void createRooms() {
-        rooms.add(new Room("Room 1", 72));
+        rooms.add(new Room("Room 1", 72, 5, 12));
     }
 
     public List<User> getUsers() {
