@@ -4,13 +4,21 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import me.leon.theater.controllers.SceneController;
 import me.leon.theater.data.Database;
-import java.io.IOException;
+
+import java.io.*;
 
 public class TheaterApp extends Application {
-    Database database = new Database();
+    Database database;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
+        try (ObjectInputStream ois = new ObjectInputStream(
+                new FileInputStream("theaterDatabase.dat"))) {
+            database = (Database) ois.readObject();
+        } catch (Exception e) {
+            database = new Database();
+            System.out.println("Continuing with default database");
+        }
         SceneController sceneController = new SceneController(database, stage);
         sceneController.setRootScene("login");
     }
@@ -21,9 +29,15 @@ public class TheaterApp extends Application {
 
     @Override
     public void stop() {
-        System.out.println(database.getLoggedInUser().getUserName());
+        if (database.getLoggedInUser() == null) {
+            return;
+        }
         database.logOut();
-        System.out.println("Stage is closing");
-        System.out.println(database.getLoggedInUser());
+        try (FileOutputStream fos = new FileOutputStream("theaterDatabase.dat");
+             ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+            oos.writeObject(database);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
