@@ -18,4 +18,9 @@ public class Seat implements Serializable {
     public int getColumn() {
         return column;
     }
+
+    @Override
+    public String toString() {
+        return "Row: " + row + "/ Column: " + column;
+    }
 }
