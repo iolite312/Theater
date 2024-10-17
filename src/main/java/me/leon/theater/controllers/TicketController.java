@@ -63,13 +63,15 @@ public class TicketController {
         initSelector(roomRows, roomColumns + 1);
         updateText();
     }
+
     private void initSelector(int roomRows, int roomColumns) {
         initGridPane(roomRows, roomColumns);
+        //sets all the row labels at the beginning of the column
         for (int i = 0; i < roomRows; i++) {
             for (int j = 0; j < roomColumns; j++) {
                 if (j == 0) {
                     Label label = new Label();
-                    label.setText("Row " + (i +1));
+                    label.setText("Row " + (i + 1));
                     gridPane.add(label, 0, i);
                     continue;
                 }
@@ -77,6 +79,8 @@ public class TicketController {
             }
         }
     }
+
+    //creates a dynamic grid based on the room size
     private void initGridPane(int row, int col) {
         gridPane.getColumnConstraints().clear();
         gridPane.getRowConstraints().clear();
@@ -104,6 +108,7 @@ public class TicketController {
         return false;
     }
 
+    //creates the buttons/seat labels to put into the grid
     private Button createSeatButton(int row, int col) {
         Seat seat = new Seat(row + 1, col);
 
@@ -116,7 +121,7 @@ public class TicketController {
         seatButton.setTextFill(Paint.valueOf("#ffffff"));
         seatButton.setFont(new Font(20));
 
-        if(isOccupiedSeat(seat)) {
+        if (isOccupiedSeat(seat)) {
             seatButton.setBackground(Background.fill(Paint.valueOf("#ff0000")));
         } else {
             seatButton.setBackground(Background.fill(Paint.valueOf("#4a4a4a")));
@@ -139,11 +144,13 @@ public class TicketController {
         int ticketSize = freeSeats.size();
         String customerName = customerNameInput.getText();
         sellTicketsbtn.setDisable(ticketSize == 0 || customerName.isEmpty());
-        sellTicketsbtn.setText("Sell "+ ticketSize + " tickets");
+        sellTicketsbtn.setText("Sell " + ticketSize + " tickets");
     }
+
     public void inputUpdated(KeyEvent key) {
         updateText();
     }
+
     public void cancelSale(ActionEvent actionEvent) {
         sceneController.loadSubScenes("sales-view.fxml", new SalesController(database, sceneController, mainLayout), mainLayout);
     }

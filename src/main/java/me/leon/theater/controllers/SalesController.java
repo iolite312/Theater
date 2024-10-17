@@ -38,6 +38,8 @@ public class SalesController {
         shows = FXCollections.observableArrayList(database.getShows());
 
         showingsTableView.setItems(shows);
+
+        // updates the selected show label when a new show gets selected
         showingsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && oldValue != newValue) {
                 selectedShow.setText(newValue.getFormattedStartTime()+ " - " + newValue.getTitle());

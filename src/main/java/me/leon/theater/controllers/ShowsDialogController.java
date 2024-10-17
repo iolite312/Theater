@@ -58,6 +58,7 @@ public class ShowsDialogController {
 
     public void initialize() {
         roomSelector.getItems().addAll(database.getRooms());
+        //checks is there is a valid show model and if true load that data instead of an empty form
         if (show != null) {
             roomSelector.setValue(show.getRoom());
             title.setText(show.getTitle());
@@ -84,6 +85,7 @@ public class ShowsDialogController {
         stage.close();
     }
 
+    //validates the whole form
     private boolean validateFormInputs() {
         errorLabel.setText("");
         if (Objects.equals(title.getText(), "")) {
@@ -119,10 +121,10 @@ public class ShowsDialogController {
     }
 
     private LocalDateTime formatTime(LocalDate date, String timeText) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        LocalTime time = LocalTime.parse(timeText, formatter);
+        LocalTime time = LocalTime.parse(timeText, DateTimeFormatter.ofPattern("HH:mm"));
         return LocalDateTime.of(date, time);
     }
+
     private boolean validateTime() {
         try {
             LocalTime.parse(startTime.getText(), DateTimeFormatter.ofPattern("HH:mm"));

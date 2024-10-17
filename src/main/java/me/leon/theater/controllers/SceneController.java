@@ -32,17 +32,20 @@ public class SceneController {
     }
 
     public void setRootScene(String name) {
+        //sets the main stage when the application is starting
         SceneLoader(name);
         stage.show();
     }
 
     public void setRootScene(String name, ActionEvent actionEvent) {
+        //sets the main stage when the application is already loaded in
         stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         SceneLoader(name);
     }
 
     private void SceneLoader(String name) {
         try {
+            //gets the correct fxml and assigns the correct controller to it for the main stage
             FXMLLoader loader = new FXMLLoader(TheaterApp.class.getResource(scenes.get(name)));
             if ("login".equals(name)) {
                 loader.setController(new LoginController(database, this));
@@ -62,6 +65,7 @@ public class SceneController {
         }
     }
 
+    //Swaps all the subScenes when needed. this to keep the header static
     public void loadSubScenes(String name, Object controller, VBox layout) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(TheaterApp.class.getResource(name));
@@ -74,6 +78,8 @@ public class SceneController {
             throw new RuntimeException(e);
         }
     }
+
+    //creates dialog popups, for example for editing a show
     public void StartDialog(String name, String view, Object controller) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(TheaterApp.class.getResource(view));
