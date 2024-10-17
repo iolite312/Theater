@@ -52,7 +52,7 @@ public class ShowsController {
             errorMessage.setText("No shows selected");
             return;
         }
-        Shows show = (Shows)showingsTableView.getSelectionModel().getSelectedItems().getFirst();
+        Shows show = showingsTableView.getSelectionModel().getSelectedItems().getFirst();
         ShowsDialogController showsDialogController = new ShowsDialogController(show, database);
 
         sceneController.StartDialog("Edit Showing", "showsDialog-view.fxml", showsDialogController);
