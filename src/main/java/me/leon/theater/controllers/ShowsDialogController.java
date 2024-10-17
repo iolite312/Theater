@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 public class ShowsDialogController {
@@ -94,6 +95,9 @@ public class ShowsDialogController {
         if (startDate.getValue().isAfter(endDate.getValue())) {
             errorLabel.setText("Start date is after end date"); return;
         }
+        if(!validateTime()) {
+            errorLabel.setText("Invalid time please conform to this 00:00 format"); return;
+        }
         if (show == null) {
             show = new Shows(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
         } else {
@@ -106,5 +110,14 @@ public class ShowsDialogController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         LocalTime time = LocalTime.parse(timeText, formatter);
         return LocalDateTime.of(date, time);
+    }
+    private boolean validateTime() {
+        try {
+            LocalTime.parse(startTime.getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            LocalTime.parse(endTime.getText(), DateTimeFormatter.ofPattern("HH:mm"));
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+        return true;
     }
 }
