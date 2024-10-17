@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.geometry.Insets?>
-
-<VBox prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21">
     <children>
         <AnchorPane prefHeight="43.0" prefWidth="1200.0">
             <children>
                 <Text layoutX="14.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales History">
                     <font>
-                        <Font size="22.0" />
+                        <Font size="22.0"/>
                     </font>
                 </Text>
             </children>
@@ -25,28 +23,28 @@
                 <columns>
                     <TableColumn minWidth="180" text="Date/Time">
                         <cellValueFactory>
-                            <PropertyValueFactory property="purchaseDate" />
+                            <PropertyValueFactory property="purchaseDate"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn minWidth="100" text="Number of tickets">
                         <cellValueFactory>
-                            <PropertyValueFactory property="Count" />
+                            <PropertyValueFactory property="Count"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn minWidth="180" text="Customer">
                         <cellValueFactory>
-                            <PropertyValueFactory property="customerName" />
+                            <PropertyValueFactory property="customerName"/>
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn minWidth="300" prefWidth="130.0" text="Showing">
                         <cellValueFactory>
-                            <PropertyValueFactory property="showingTitle" />
+                            <PropertyValueFactory property="showingTitle"/>
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
             </TableView>
             <VBox.margin>
-                <Insets top="10.0" />
+                <Insets top="10.0"/>
             </VBox.margin>
         </AnchorPane>
     </children>

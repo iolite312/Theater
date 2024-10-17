@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane prefHeight="292.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-      <Text layoutX="32.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <TextField fx:id="userNameInput" layoutX="32.0" layoutY="120.0" promptText="username" />
-      <PasswordField fx:id="passwordInput" layoutX="32.0" layoutY="176.0" promptText="password" />
-      <Button layoutX="32.0" layoutY="217.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Login" />
-       <Text fx:id="userNameErrorTxt" fill="RED" layoutX="32.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-       <Text fx:id="passwordErrorTxt" fill="RED" layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="292.0" prefWidth="230.0"
+            xmlns="http://javafx.com/javafx/21">
+    <Text layoutX="32.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+        <font>
+            <Font size="30.0"/>
+        </font>
+    </Text>
+    <TextField fx:id="userNameInput" layoutX="32.0" layoutY="120.0" promptText="username"/>
+    <PasswordField fx:id="passwordInput" layoutX="32.0" layoutY="176.0" promptText="password"/>
+    <Button layoutX="32.0" layoutY="217.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Login"/>
+    <Text fx:id="userNameErrorTxt" fill="RED" layoutX="32.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+    <Text fx:id="passwordErrorTxt" fill="RED" layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
 </AnchorPane>

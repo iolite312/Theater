@@ -2,29 +2,30 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="179.0" prefWidth="800.0">
-         <children>
-            <Text fx:id="usernameWelcome" layoutX="31.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome [Username]">
-               <font>
-                  <Font size="37.0" />
-               </font>
-            </Text>
-            <Text fx:id="roleWelcome" layoutX="31.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You are logged in as [role]">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Text>
-            <Text fx:id="currentDateTime" layoutX="31.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The current date and time is [DD-MM-YYYY HH:MM]" wrappingWidth="428.3509521484375">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-   </children>
+<?import javafx.scene.text.*?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+    <children>
+        <AnchorPane prefHeight="179.0" prefWidth="800.0">
+            <children>
+                <Text fx:id="usernameWelcome" layoutX="31.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Welcome [Username]">
+                    <font>
+                        <Font size="37.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="roleWelcome" layoutX="31.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="You are logged in as [role]">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="currentDateTime" layoutX="31.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="The current date and time is [DD-MM-YYYY HH:MM]" wrappingWidth="428.3509521484375">
+                    <font>
+                        <Font size="17.0"/>
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </children>
 </HBox>
