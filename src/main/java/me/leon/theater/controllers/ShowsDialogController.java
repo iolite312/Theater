@@ -20,32 +20,32 @@ import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 public class ShowsDialogController {
-    Shows show;
+    private Shows show;
 
     public Shows getShow() {
         return show;
     }
 
-    Database database;
+    private Database database;
 
     @FXML
-    Text header;
+    private Text header;
     @FXML
-    TextField title;
+    private TextField title;
     @FXML
-    ComboBox<Room> roomSelector;
+    private ComboBox<Room> roomSelector;
     @FXML
-    DatePicker startDate;
+    private DatePicker startDate;
     @FXML
-    TextField startTime;
+    private TextField startTime;
     @FXML
-    DatePicker endDate;
+    private DatePicker endDate;
     @FXML
-    TextField endTime;
+    private TextField endTime;
     @FXML
-    Text errorLabel;
+    private Text errorLabel;
     @FXML
-    Button confirmBtn;
+    private Button confirmBtn;
 
     public ShowsDialogController(Database database) {
         this.database = database;

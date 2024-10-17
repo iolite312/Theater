@@ -12,11 +12,11 @@ public class DashboardController {
     private Database database;
     private SceneController sceneController;
     @FXML
-    VBox layout;
+    private VBox layout;
     @FXML
-    Button manageShowingBtn;
+    private Button manageShowingBtn;
     @FXML
-    Button viewSalesHistoryBtn;
+    private Button viewSalesHistoryBtn;
 
     public DashboardController(Database database, SceneController sceneController) {
         this.database = database;

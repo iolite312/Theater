@@ -32,17 +32,17 @@ public class TicketController {
     private ObservableList<Seat> freeSeats = FXCollections.observableArrayList();
 
     @FXML
-    GridPane gridPane;
+    private GridPane gridPane;
     @FXML
-    AnchorPane anchorPane;
+    private AnchorPane anchorPane;
     @FXML
-    ListView<Seat> seatList;
+    private ListView<Seat> seatList;
     @FXML
-    Button sellTicketsbtn;
+    private Button sellTicketsbtn;
     @FXML
-    TextField customerNameInput;
+    private TextField customerNameInput;
     @FXML
-    VBox mainLayout;
+    private VBox mainLayout;
 
     public TicketController(Database database, SceneController sceneController, Shows show, VBox mainLayout) {
         this.database = database;
