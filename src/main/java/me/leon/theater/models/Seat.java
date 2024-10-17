@@ -21,6 +21,6 @@ public class Seat implements Serializable {
 
     @Override
     public String toString() {
-        return "Row: " + row + "/ Column: " + column;
+        return "Row: " + row + " / Column: " + column;
     }
 }
