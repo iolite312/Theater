@@ -79,33 +79,45 @@ public class ShowsDialogController {
     }
 
     public void confirmShowing(ActionEvent event) {
+        if (validateFormInputs()) return;
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    private boolean validateFormInputs() {
         errorLabel.setText("");
         if (Objects.equals(title.getText(), "")) {
-            errorLabel.setText("No title set"); return;
+            errorLabel.setText("No title set");
+            return true;
         }
         if (roomSelector.getSelectionModel().isEmpty()) {
-            errorLabel.setText("No room set"); return;
+            errorLabel.setText("No room set");
+            return true;
         }
         if (startDate.getValue() == null || endDate.getValue() == null) {
-            errorLabel.setText("No start or end date set"); return;
+            errorLabel.setText("No start or end date set");
+            return true;
         }
         if (Objects.equals(startTime.getText(), "") || Objects.equals(endTime.getText(), "")) {
-            errorLabel.setText("No start or end time set"); return;
+            errorLabel.setText("No start or end time set");
+            return true;
         }
         if (startDate.getValue().isAfter(endDate.getValue())) {
-            errorLabel.setText("Start date is after end date"); return;
+            errorLabel.setText("Start date is after end date");
+            return true;
         }
         if(!validateTime()) {
-            errorLabel.setText("Invalid time please conform to this 00:00 format"); return;
+            errorLabel.setText("Invalid time please conform to this 00:00 format");
+            return true;
         }
         if (show == null) {
             show = new Shows(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
         } else {
             show.updateShow(title.getText(), formatTime(startDate.getValue(), startTime.getText()), formatTime(endDate.getValue(), endTime.getText()), roomSelector.getValue());
         }
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        stage.close();
+        return false;
     }
+
     private LocalDateTime formatTime(LocalDate date, String timeText) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         LocalTime time = LocalTime.parse(timeText, formatter);
