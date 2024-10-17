@@ -10,8 +10,6 @@ import javafx.scene.text.Text;
 import me.leon.theater.data.Database;
 import me.leon.theater.models.Shows;
 
-import java.util.Comparator;
-
 public class SalesController {
     private Database database;
 
@@ -33,6 +31,7 @@ public class SalesController {
         this.sceneController = sceneController;
         this.vbox = vbox;
     }
+
     @FXML
     public void initialize() {
         shows = FXCollections.observableArrayList(database.getShows());
@@ -42,7 +41,7 @@ public class SalesController {
         // updates the selected show label when a new show gets selected
         showingsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && oldValue != newValue) {
-                selectedShow.setText(newValue.getFormattedStartTime()+ " - " + newValue.getTitle());
+                selectedShow.setText(newValue.getFormattedStartTime() + " - " + newValue.getTitle());
             }
         });
     }
@@ -51,7 +50,8 @@ public class SalesController {
         errorMessage.setText("");
         Shows show = showingsTableView.getSelectionModel().getSelectedItem();
         if (show == null) {
-            errorMessage.setText("No show selected"); return;
+            errorMessage.setText("No show selected");
+            return;
         }
         TicketController ticketController = new TicketController(database, sceneController, show, vbox);
 

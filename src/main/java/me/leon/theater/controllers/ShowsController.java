@@ -27,6 +27,7 @@ public class ShowsController {
         this.database = database;
         this.sceneController = sceneController;
     }
+
     @FXML
     public void initialize() {
         shows = FXCollections.observableArrayList(database.getShows());

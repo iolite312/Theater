@@ -21,13 +21,7 @@ import java.util.Objects;
 
 public class ShowsDialogController {
     private Shows show;
-
-    public Shows getShow() {
-        return show;
-    }
-
     private Database database;
-
     @FXML
     private Text header;
     @FXML
@@ -46,7 +40,6 @@ public class ShowsDialogController {
     private Text errorLabel;
     @FXML
     private Button confirmBtn;
-
     public ShowsDialogController(Database database) {
         this.database = database;
     }
@@ -54,6 +47,10 @@ public class ShowsDialogController {
     public ShowsDialogController(Shows show, Database database) {
         this.show = show;
         this.database = database;
+    }
+
+    public Shows getShow() {
+        return show;
     }
 
     public void initialize() {
@@ -108,7 +105,7 @@ public class ShowsDialogController {
             errorLabel.setText("Start date is after end date");
             return true;
         }
-        if(!validateTime()) {
+        if (!validateTime()) {
             errorLabel.setText("Invalid time please conform to this 00:00 format");
             return true;
         }

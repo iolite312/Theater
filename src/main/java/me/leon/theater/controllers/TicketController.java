@@ -12,7 +12,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-
 import me.leon.theater.data.Database;
 import me.leon.theater.models.Room;
 import me.leon.theater.models.Seat;

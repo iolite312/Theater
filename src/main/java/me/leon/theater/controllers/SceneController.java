@@ -39,7 +39,7 @@ public class SceneController {
 
     public void setRootScene(String name, ActionEvent actionEvent) {
         //sets the main stage when the application is already loaded in
-        stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         SceneLoader(name);
     }
 

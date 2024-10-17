@@ -1,10 +1,8 @@
 package me.leon.theater.models;
 
 import java.io.Serializable;
-import java.util.List;
 
-public class Room implements Serializable
-{
+public class Room implements Serializable {
     private String roomName;
     private int totalSeats;
     private int rows;
@@ -24,15 +22,17 @@ public class Room implements Serializable
     public int getTotalSeats() {
         return totalSeats;
     }
+
     public int getRows() {
         return rows;
     }
+
     public int getColumns() {
         return columns;
     }
 
     @Override
     public String toString() {
-        return roomName + ": " + totalSeats +" seats";
+        return roomName + ": " + totalSeats + " seats";
     }
 }

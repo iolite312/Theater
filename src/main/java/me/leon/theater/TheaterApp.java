@@ -8,7 +8,11 @@ import me.leon.theater.data.Database;
 import java.io.*;
 
 public class TheaterApp extends Application {
-    Database database;
+    private Database database;
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) {
@@ -21,10 +25,6 @@ public class TheaterApp extends Application {
         }
         SceneController sceneController = new SceneController(database, stage);
         sceneController.setRootScene("login");
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 
     @Override
