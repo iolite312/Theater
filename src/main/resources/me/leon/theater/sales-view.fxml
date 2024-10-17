@@ -28,7 +28,7 @@
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="483.0" prefWidth="1200.0">
-         <TableView fx:id="showingsTableView" layoutX="14.0" prefHeight="483.0" prefWidth="1100.0">
+         <TableView fx:id="showingsTableView" layoutX="14.0" prefHeight="430.0" prefWidth="1100.0">
             <columns>
                <TableColumn minWidth="300" text="Title">
                   <cellValueFactory>
@@ -52,6 +52,7 @@
                </TableColumn>
             </columns>
          </TableView>
+         <Text fx:id="selectedShow" layoutX="22.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="No Show Selected" />
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

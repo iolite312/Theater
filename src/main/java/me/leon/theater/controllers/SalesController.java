@@ -25,6 +25,8 @@ public class SalesController {
     private TableView<Shows> showingsTableView;
     @FXML
     private Text errorMessage;
+    @FXML
+    private Text selectedShow;
 
     public SalesController(Database database, SceneController sceneController, VBox vbox) {
         this.database = database;
@@ -36,6 +38,11 @@ public class SalesController {
         shows = FXCollections.observableArrayList(database.getShows());
 
         showingsTableView.setItems(shows);
+        showingsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && oldValue != newValue) {
+                selectedShow.setText(newValue.getFormattedStartTime()+ " - " + newValue.getTitle());
+            }
+        });
     }
 
     public void sellTickets(ActionEvent actionEvent) {
