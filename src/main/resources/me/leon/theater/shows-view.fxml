@@ -37,12 +37,12 @@
                </TableColumn>
                <TableColumn minWidth="180" text="Start Time">
                   <cellValueFactory>
-                     <PropertyValueFactory property="startTime" />
+                     <PropertyValueFactory property="formattedStartTime" />
                   </cellValueFactory>
                </TableColumn>
                <TableColumn minWidth="180" text="End Time">
                   <cellValueFactory>
-                     <PropertyValueFactory property="endTime" />
+                     <PropertyValueFactory property="formattedEndTime" />
                   </cellValueFactory>
                </TableColumn>
                <TableColumn minWidth="50" prefWidth="130.0" text="Room">

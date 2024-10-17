@@ -46,6 +46,12 @@ public class Shows implements Serializable {
     public LocalDateTime getEndTime() {
         return endTime;
     }
+    public String getFormattedStartTime() {
+        return startTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+    }
+    public String getFormattedEndTime() {
+        return endTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+    }
 
     public List<Ticket> getTickets() {
         return tickets;
