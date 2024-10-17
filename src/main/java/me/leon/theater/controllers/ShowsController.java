@@ -67,11 +67,11 @@ public class ShowsController {
 
     public void deleteShowing(ActionEvent actionEvent) {
         errorMessage.setText("");
-        ObservableList<Shows> selectedShow = showingsTableView.getSelectionModel().getSelectedItems();
+        Shows selectedShow = showingsTableView.getSelectionModel().getSelectedItem();
 
-        if (selectedShow.getFirst().getTickets().isEmpty()) {
+        if (selectedShow.getTickets().isEmpty()) {
             shows.removeAll(selectedShow);
-            database.getShows().removeAll(selectedShow);
+            database.getShows().remove(selectedShow);
             return;
         }
 
