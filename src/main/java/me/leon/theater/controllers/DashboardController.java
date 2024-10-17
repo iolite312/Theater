@@ -37,6 +37,10 @@ public class DashboardController {
     public void goToHome() {
         sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);
     }
+    public void logOut(ActionEvent event) {
+        database.logOut();
+        sceneController.setRootScene("login", event);
+    }
     @FXML
     public void initialize() {
         sceneController.loadSubScenes("home-view.fxml", new HomeController(database, sceneController), layout);

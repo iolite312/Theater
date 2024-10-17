@@ -27,7 +27,7 @@
                         <Image url="@MovieLogo.png" />
                      </image>
                   </ImageView>
-                  <HBox layoutX="705.0" layoutY="43.0" prefHeight="38.0" prefWidth="481.0">
+                  <HBox layoutX="641.0" layoutY="43.0" prefHeight="38.0" prefWidth="545.0">
                      <children>
                         <Button fx:id="sellTicketsBtn" mnemonicParsing="false" onAction="#loadSales" prefHeight="40.0" prefWidth="120.0" text="Sell Tickets">
                            <HBox.margin>
