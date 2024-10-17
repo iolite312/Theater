@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+
 import me.leon.theater.data.Database;
 import me.leon.theater.models.Role;
 
