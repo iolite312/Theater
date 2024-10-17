@@ -58,9 +58,9 @@
       </AnchorPane>
       <HBox prefHeight="59.0" prefWidth="1200.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addShowing" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #0078d7;" text="Add Showing" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#editShowing" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #797979;" text="Edit Showing" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#deleteShowing" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: #c60108;" text="Delete Showing" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#addShowing" prefHeight="42.0" prefWidth="126.0" style="-fx-background-color: #0078d7;" text="Add Showing" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#editShowing" prefHeight="42.0" prefWidth="126.0" style="-fx-background-color: #797979;" text="Edit Showing" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#deleteShowing" prefHeight="42.0" prefWidth="126.0" style="-fx-background-color: #c60108;" text="Delete Showing" textFill="WHITE" />
          </children>
          <VBox.margin>
             <Insets />
