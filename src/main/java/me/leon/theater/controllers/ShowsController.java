@@ -71,6 +71,7 @@ public class ShowsController {
 
         if (selectedShow.getFirst().getTickets().isEmpty()) {
             shows.removeAll(selectedShow);
+            database.getShows().removeAll(selectedShow);
             return;
         }
 
